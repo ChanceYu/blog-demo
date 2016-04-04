@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>JavaScript选项卡</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script type="text/javascript" src="oop.js"></script>
+</head>
+<body>
+  <div class="tab-box">
+    <div class="tab-header">
+      <a class="tab-btn active" href="javascript:void(0)">选项一</a>
+      <a class="tab-btn" href="javascript:void(0)">选项二</a>
+      <a class="tab-btn" href="javascript:void(0)">选项三</a>
+    </div>
+    <div class="tab-content">
+      <div class="tab-item active">内容一</div>
+      <div class="tab-item">内容二</div>
+      <div class="tab-item">内容三</div>
+    </div>
+  </div>
+
+
+  <div class="tab-box" data-options='{"event": "mouseenter"}'>
+    <div class="tab-header">
+      <a class="tab-btn active" href="javascript:void(0)">新闻一</a>
+      <a class="tab-btn" href="javascript:void(0)">新闻二</a>
+      <a class="tab-btn" href="javascript:void(0)">新闻三</a>
+    </div>
+    <div class="tab-content">
+      <div class="tab-item active">新闻内容一</div>
+      <div class="tab-item">新闻内容二</div>
+      <div class="tab-item">新闻内容三</div>
+    </div>
+  </div>
+</body>
+</html>
