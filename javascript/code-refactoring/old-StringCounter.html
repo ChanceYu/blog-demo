@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="http://apps.bdimg.com/libs/bootstrap/3.3.4/css/bootstrap.min.css">
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript">
+    function changeInputValNum(id,num){
+      var valNum = $(id).val().length;
+      if(valNum > num){
+        return;
+      }
+      $(id).next().find(".vary-num").html(valNum);
+    }
+  </script>
+</head>
+<body>
+  <div class="box">
+    <form class="form-horizontal">
+      <div class="form-group">
+        <span class="col-sm-2 control-label">标题：</span>
+        <div class="col-sm-4">
+          <div class="input-num">
+            <input type="text" class="form-control" id="title" onkeyup="changeInputValNum('#title',10);" maxlength="10" />
+            <span class="num">
+              <i class="vary-num">0</i>/<i>10</i>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <span class="col-sm-2 control-label">内容：</span>
+        <div class="col-sm-4">
+          <div class="input-num">
+            <textarea class="form-control" id="content" onkeyup="changeInputValNum('#content',200);" maxlength="200" rows="10"></textarea>
+            <span class="num">
+              <i class="vary-num">0</i>/<i>200</i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
