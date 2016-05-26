@@ -1,0 +1,7 @@
+i{font-style: normal;}
+.box{display: block; margin: 100px auto;}
+.input-num { position: relative; }
+.input-num .num { position: absolute; bottom: 0; right: 5px; height: 34px; line-height: 34px; }
+.input-num .eye-icon { position: absolute; top: 11px; right: 10px; cursor: pointer; }
+.input-num .eye-icon.active { background-position: -27px -45px; }
+.input-num .form-control { padding: 6px 50px 6px 12px; }
