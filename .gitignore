@@ -1,3 +1,5 @@
+removeEmptyFolder.bat
+
 # OSX
 .DS_Store
 .AppleDouble
