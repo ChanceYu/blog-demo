@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"></script>
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <div class="tree">
+    <ul class="tree-root" id="treeRoot">
+      
+    </ul>
+  </div>
+
+  <script type="text/html" id="treeTemplate">
+    <% for(var i = 0; i < _this.length; i++){ %>
+      <% var node = _this[i]; %>
+      <% if(node.children && node.children.length > 0) { %>
+        <li class="hide-node">
+          <a class="tree-collapse" href="javascript:void(0)"><%= node.name %></a>
+          <ul class="tree-group">
+            <% include(treeTemplate, node.children); %>
+          </ul>
+        </li>
+      <% }else{ %>
+        <li>
+          <a href="javascript:void(0)"><%= node.name %></a>
+        </li>
+      <% } %>
+    <% } %>
+  </script>
+  <script type="text/javascript" src="simplite.min.js"></script>
+  <script type="text/javascript" src="treeData.js"></script>
+  <script type="text/javascript" src="tree-template.js"></script>
+</body>
+</html>
