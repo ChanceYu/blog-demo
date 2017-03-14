@@ -1,5 +1,5 @@
 # Blog Demo
-A collection of blog demos for [ChanceYu](http://www.yzq.ren)
+个人博客的文章案例集合 [ChanceYu](http://www.yzq.ren)
 
 * JavaScript
     * [JS选项卡从简单到高级](javascript/tab)　[:point_right:](http://yzq.ren/blog/javascript/tab.html)
