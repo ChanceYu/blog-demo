@@ -1,5 +1,5 @@
 # Blog Demo
-个人博客的文章案例集合 [ChanceYu](http://www.yzq.ren)
+个人博客的文章案例集合，博客地址：[http://www.yzq.ren](http://www.yzq.ren)
 
 * JavaScript
     * [JS选项卡从简单到高级](javascript/tab)　[:point_right:](http://yzq.ren/blog/javascript/tab.html)
