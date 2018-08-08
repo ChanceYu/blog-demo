@@ -1,10 +1,10 @@
 # Blog Demo
-个人博客的文章案例集合，博客地址：[http://www.yzq.ren](http://www.yzq.ren)
+个人博客的文章案例集合，博客地址：[https://blog.chanceyu.com](https://blog.chanceyu.com)
 
 * JavaScript
-    * [JS选项卡从简单到高级](javascript/tab)　[:point_right:](http://yzq.ren/blog/javascript/tab.html)
-    * [浅谈JS代码重构](javascript/code-refactoring)　[:point_right:](http://yzq.ren/blog/javascript/code-refactoring.html)
-    * [浅谈AngularJS](javascript/angularjs)　[:point_right:](http://yzq.ren/blog/javascript/angularjs.html)
-    * [无限级tree的实现](javascript/infinite-tree)　[:point_right:](http://yzq.ren/blog/javascript/infinite-tree.html)
+    * [JS选项卡从简单到高级](javascript/tab)
+    * [浅谈JS代码重构](javascript/code-refactoring)
+    * [浅谈AngularJS](javascript/angularjs)
+    * [无限级tree的实现](javascript/infinite-tree)
 * CSS
-    * [浏览器兼容性之CSS](css/compatibility)　[:point_right:](http://yzq.ren/blog/css/compatibility.html)
+    * [浏览器兼容性之CSS](css/compatibility)
