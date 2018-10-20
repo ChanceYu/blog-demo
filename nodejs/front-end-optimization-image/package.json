@@ -1,0 +1,31 @@
+{
+  "name": "koa-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "async-busboy": "^0.7.0",
+    "ejs": "^2.6.1",
+    "koa": "^2.2.0",
+    "koa-bodyparser": "^3.2.0",
+    "koa-json": "^2.0.2",
+    "koa-router": "^7.1.1",
+    "koa-static": "^5.0.0",
+    "koa-views": "^6.1.4",
+    "lst-get": "^1.1.2",
+    "utility": "^1.11.0"
+  },
+  "devDependencies": {
+    "fs-extra": "^7.0.0",
+    "imagemin": "^6.0.0",
+    "imagemin-jpegtran": "^5.0.2",
+    "imagemin-mozjpeg": "^7.0.0",
+    "imagemin-pngquant": "^6.0.0",
+    "imagemin-webp": "^4.1.0"
+  }
+}

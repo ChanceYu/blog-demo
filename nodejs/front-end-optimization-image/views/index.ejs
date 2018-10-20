@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>前端图片压缩优化</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        #loading{
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: 0;
+          bottom: 0;
+          text-align: center;
+          background: rgba(0, 0, 0, 0.2);
+          z-index: 999;
+          display: none;
+        }
+        #loading span{
+          color: #2196f3;
+          margin-top: 20px;
+          display: block;
+        }
+        #container{
+            padding: 100px;
+        }
+        .file-wrap{
+            display: inline-block;
+            vertical-align: middle;
+            margin-right: 30px;
+            line-height: 0;
+        }
+        .file-wrap a{
+            position: relative;
+            display: inline-block;
+            background: #fff;
+            border: 1px solid #2196f3;
+            padding: 4px 20px;
+            line-height: 20px;
+            overflow: hidden;
+            text-decoration: none;
+            text-indent: 0;
+            border-radius: 20px;
+            color: #2196f3;
+            font-size: 13px;
+            cursor: pointer;
+        }
+        .file-wrap a:hover{
+            background: #2196f3;
+            color: #fff;
+            cursor: pointer;
+        }
+        .file-wrap input{
+            position: absolute;
+            font-size: 100px;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+        button{
+            padding: 4px 20px;
+            background: #2196f3;
+            border: 1px solid #2196f3;
+            color: #fff;
+            border-radius: 2px;
+            opacity: 0.8;
+        }
+        button:hover{
+            opacity: 1;
+            cursor: pointer;
+        }
+        #fileName{
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+        img{
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading"><span>上传中...</span></div>
+    <div id="container">
+        <form id="submitForm">
+            <p><small>建议上传大于1M，小于10M的图片，以便看到压缩效果</small></p>
+            <div class="file-wrap">
+                <a href="javascript:;">选择文件
+                    <input type="file" id="fileInput" accept="image/png,image/jpeg" />
+                </a>
+            </div>
+    
+            <button type="button" id="submitBtn">上传</button>
+        </form>
+
+        <div id="fileName"></div>
+
+        <p>
+          未压缩：<br/><img id="img" />
+        </p>
+        <p>
+          压缩后：<br/><img id="imgOpt" />
+        </p>
+    </div>
+    
+    <script>
+        var loading = document.getElementById('loading');
+        var submitForm = document.getElementById('submitForm');
+        var fileInput = document.getElementById('fileInput');
+        var fileName = document.getElementById('fileName');
+        var submitBtn = document.getElementById('submitBtn');
+        var img = document.getElementById('img');
+        var imgOpt = document.getElementById('imgOpt');
+        var file = null;
+        
+        fileInput.addEventListener('change', function(event){
+            file = event.target.files[0];
+
+            var reader = new FileReader();
+            reader.onload = function () {
+                img.src = reader.result;
+            };
+            reader.readAsDataURL(file);
+
+            imgOpt.src = '';
+            fileName.innerHTML = '文件名称：' + file.name + '<br>文件大小：' + sizeToM(file.size) + 'M'
+        }, false);
+
+        submitBtn.addEventListener('click', function(){
+            if(!file) return alert('请先选择文件');
+            
+            upload()
+        }, false);
+
+        // 异步文件上传
+        function upload(){
+            loading.style.display = 'block';
+            var form = new FormData();
+            form.append('file', file);
+
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.status == 200 && xhr.readyState == 4) {
+                    loading.style.display = 'none';
+                    var json = {};
+
+                    try{
+                        json = JSON.parse(xhr.responseText);
+                    }catch(e){
+                    }
+
+                    if(json && json.status === 'success'){
+                        file = null;
+                        fileInput.value = '';
+                        fileName.innerHTML += '<br>压缩之后：' + sizeToM(json.size) + 'M';
+                        submitForm.reset();
+                        imgOpt.src = json.src;
+                    }else{
+                      alert('压缩失败');
+                    }
+                }
+            };
+            xhr.open('POST', '/upload', true);
+            xhr.send(form);
+        }
+
+        function sizeToM(size){
+          return (size / (1024 * 1024)).toFixed(2)
+        }
+    </script>
+</body>
+</html>
