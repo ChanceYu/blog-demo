@@ -2,6 +2,7 @@
 个人博客案例源码，博客地址：[https://blog.chanceyu.com](https://blog.chanceyu.com)
 
 * 2018
+    * [源码](nodejs/front-end-optimization-image) | [博客](https://blog.chanceyu.com/article/2018-08/front-end-optimization-image/) - 使用Nodejs处理前端图片压缩与转换
     * [源码](nodejs/koa2-email-cors) | [博客](https://blog.chanceyu.com/article/2018-08/koa2-email-cors/) - 基于koa2搭建的跨域email邮件发送服务
 * 2016
     * [源码](javascript/tab) | [博客](https://blog.chanceyu.com/article/2016-03/tab/) - JS选项卡从简单到高级
